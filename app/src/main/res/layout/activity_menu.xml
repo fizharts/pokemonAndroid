@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp"
+    tools:context=".MenuActivity">
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/transparente"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="@string/bienvenido"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"></TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/transparente"
+
+        android:orientation="vertical"
+        android:padding="10dp">
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@color/colorButton"
+            android:drawableStart="@drawable/ic_adb_black_24dp"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
+            android:text="@string/registrar"
+            android:id="@+id/btnRegistrar"
+            android:textColor="@color/Blanco"></Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@color/colorButton"
+            android:drawableStart="@drawable/ic_add_circle_outline_black_24dp"
+            android:paddingLeft="50dp"
+            android:paddingTop="12dp"
+            android:paddingRight="50dp"
+            android:text="@string/misCitas"
+            android:id="@+id/btnCitas"
+            android:textColor="@color/Blanco"></Button>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:id="@+id/btn_cerrarSecion"
+            android:background="@color/colorButton"
+            android:drawableStart="@drawable/ic_account_circle_black_24dp"
+            android:paddingLeft="50dp"
+            android:paddingTop="12dp"
+            android:paddingRight="50dp"
+            android:text="@string/cerrar_sesion"
+            android:textColor="@color/Blanco"></Button>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
