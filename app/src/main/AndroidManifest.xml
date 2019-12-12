@@ -15,10 +15,12 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".PokemonIndividual"
-            android:parentActivityName=".PokeActivity" />
+            android:parentActivityName=".PokeActivity"
+            android:launchMode="singleInstance"/>
         <activity
             android:name=".PokeActivity"
-            android:parentActivityName=".MenuActivity" android:launchMode="singleInstance"/>
+            android:launchMode="singleInstance"
+            android:parentActivityName=".MenuActivity" />
         <activity
             android:name=".MisCitas"
             android:parentActivityName=".MenuActivity" />

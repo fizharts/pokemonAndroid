@@ -11,4 +11,12 @@
     <string name="registrar">registrar</string>
     <string name="misCitas">Mis citas</string>
     <string name="cerrar_sesion">Cerrar Sesion</string>
+    <string name="morado">#26C6DA</string>
+    <string name="blanco">#FFFFF</string>
+    <string name="blanquito">#FFFFFF</string>
+    <string name="Rojo">#FF2751</string>
+    <string name="azul">#4DB6AC</string>
+    <string name="verde">#66BB6A</string>
+    <string name="bug">#26A69A</string>
+    <string name="flying">#42A5F5</string>
 </resources>

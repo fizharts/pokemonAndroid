@@ -1,10 +1,12 @@
 package com.example.apidos
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.core.view.setPadding
 import com.example.apidos.io.PokemonImagen
 import com.example.apidos.io.ServicioPokemones
 import com.squareup.picasso.Picasso
@@ -28,48 +30,95 @@ class PokemonIndividual : AppCompatActivity() {
 
 
         if (id != null) {
-          val individualPoke  = servicioPokemon.getImagen(id)
+            val individualPoke: Call<PokemonImagen> = servicioPokemon.getImagen(id).also { it ->
 
-            individualPoke.enqueue(object : retrofit2.Callback<PokemonImagen>{
-                override fun onFailure(call: Call<PokemonImagen>, t: Throwable) {
-                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-                }
-
-                override fun onResponse(
-                    call: Call<PokemonImagen>,
-                    response: Response<PokemonImagen>
-                ) {
-
-
-                    val res =  response.body()
-
-
-                        var front_default = ImageView(this@PokemonIndividual)
-                        var back_default = ImageView(this@PokemonIndividual)
-                        var front_shiny = ImageView(this@PokemonIndividual)
-                        var back_shiny = ImageView(this@PokemonIndividual)
-
-                    if (res != null) {
-
-
-                        Picasso.get().load(res.sprites.front_default).into(front_default)
-                        Picasso.get().load(res.sprites.back_default).into(back_default)
-                        Picasso.get().load(res.sprites.front_shiny).into(front_shiny)
-                        Picasso.get().load(res.sprites.back_shiny).into(back_shiny)
+                it.enqueue(object : retrofit2.Callback<PokemonImagen>{
+                    override fun onFailure(call: Call<PokemonImagen>, t: Throwable) {
+                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                     }
 
-                    tvNombrePokemon.text = res?.species?.name
-
-                    Ll_contenedor.addView(front_default)
-                    Ll_contenedor.addView(back_default)
-                    Ll_contenedor.addView(front_shiny)
-                    Ll_contenedor.addView(back_shiny)
+                    override fun onResponse(
+                        call: Call<PokemonImagen>,
+                        response: Response<PokemonImagen>
+                    ) {
 
 
+                        val res =  response.body()
+                        val tipo = res?.types
 
-                }
 
-            })
+//
+
+                        if (res != null) {
+                            Picasso.get().load(res.sprites.front_default).into(ivPokemon)
+                            Picasso.get().load(res.sprites.back_default).into(ivPokemonBack)
+                        }
+
+
+                        tvTextoPokemon.setBackgroundColor(Color.parseColor(getString(R.string.morado)))
+                        tvTextoPokemon.text = res?.species?.name
+
+
+
+                        if (tipo != null) {
+                            tipo.forEach {
+
+
+                                when(it.type.name.toString()){
+
+                                    "fire" -> {
+                                        TipoPokemons.setBackgroundColor(Color.parseColor(getString(
+                                            R.string.Rojo)))
+                                        tvTextoPokemon.setBackgroundColor(Color.parseColor(getString(R.string.Rojo)))
+                                        TipoPokemons.text = "Fire"
+                                    }
+
+
+
+                                    "water" -> {
+                                        TipoPokemons.setBackgroundColor(Color.parseColor(getString(
+                                            R.string.azul)))
+                                        tvTextoPokemon.setBackgroundColor(Color.parseColor(getString(R.string.azul)))
+                                        TipoPokemons.text = "Water"
+                                    }
+
+                                    "grass" -> {
+                                        TipoPokemons.setBackgroundColor(Color.parseColor(getString(
+                                            R.string.verde)))
+                                        tvTextoPokemon.setBackgroundColor(Color.parseColor(getString(R.string.verde)))
+                                        TipoPokemons.text = "Grass"
+                                    }
+
+                                    "bug"-> {
+                                        TipoPokemons.setBackgroundColor(Color.parseColor(getString(
+                                            R.string.bug)))
+                                        tvTextoPokemon.setBackgroundColor(Color.parseColor(getString(R.string.bug)))
+                                        TipoPokemons.text = "bug"
+
+                                    } 
+
+                                    "flying" -> {
+                                        TipoPokemons.setBackgroundColor(Color.parseColor(getString(
+                                            R.string.flying)))
+                                        tvTextoPokemon.setBackgroundColor(Color.parseColor(getString(R.string.flying)))
+                                        TipoPokemons.text = "flying"
+                                    }
+
+
+
+                                }
+
+                                tvTipo.text = it.type.name
+
+                            }
+                        }
+
+
+
+                    }
+
+                })
+            }
         }
 
 

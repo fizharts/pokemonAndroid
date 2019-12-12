@@ -1,6 +1,8 @@
 package com.example.apidos
 
+import android.app.AlertDialog
 import android.app.DatePickerDialog
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -33,8 +35,8 @@ class CrearCita : AppCompatActivity() {
 
 
     private val apiService:ApiService by lazy {
-            ApiService.create()
-     }
+        ApiService.create()
+    }
 
 
 
@@ -45,12 +47,10 @@ class CrearCita : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_crear_cita)
-//        var spinnerOptions = findViewById<Spinner>(R.id.spinnerOptions)
-//        var btnSiguiente = findViewById<Button>(R.id.btnSiguiente)
 
-        
+
         pruebaSpinner()
-    
+
         cargarApi()
 
 
@@ -109,7 +109,7 @@ class CrearCita : AppCompatActivity() {
     private fun pruebaSpinner() {
 
 
-       val callUsuarios = obtenerUsuarios.getUsuarios()
+        val callUsuarios = obtenerUsuarios.getUsuarios()
 
         callUsuarios.enqueue(object : Callback <ArrayList<Usuarios>>{
             override fun onFailure(call: Call<ArrayList<Usuarios>>, t: Throwable) {
@@ -129,12 +129,12 @@ class CrearCita : AppCompatActivity() {
 
                     res?.forEach {
                         val textito = TextView(this@CrearCita)
-                            textito.id = View.generateViewId()
-                            textito.text = it.phone
+                        textito.id = View.generateViewId()
+                        textito.text = it.phone
 
                         val TextitoDos = TextView(this@CrearCita)
-                            TextitoDos.id = View.generateViewId()
-                            TextitoDos.text = it.email
+                        TextitoDos.id = View.generateViewId()
+                        TextitoDos.text = it.email
 
 
                         aqui.addView(textito)
@@ -148,11 +148,11 @@ class CrearCita : AppCompatActivity() {
 
 
                     sPrueba.adapter = ArrayAdapter<String>(
-                                        this@CrearCita,
-                                        android.R.layout.simple_spinner_dropdown_item,
-                                        arrayUsuarios
+                        this@CrearCita,
+                        android.R.layout.simple_spinner_dropdown_item,
+                        arrayUsuarios
 
-                                    )
+                    )
 
 
 
@@ -171,7 +171,7 @@ class CrearCita : AppCompatActivity() {
     private fun cargarApi() {
 
 
-  val call =  apiService.getData()
+        val call =  apiService.getData()
 
         call.enqueue(object: Callback<ArrayList<Datos>>{
             override fun onFailure(call: Call<ArrayList<Datos>>, t: Throwable) {
@@ -188,7 +188,7 @@ class CrearCita : AppCompatActivity() {
 
                 if (response.isSuccessful){
 
-                   val datosRest = response.body()
+                    val datosRest = response.body()
                     val opciones = ArrayList<String>()
 
 
@@ -249,6 +249,29 @@ class CrearCita : AppCompatActivity() {
 
 
     }
-}
+
+    override fun onBackPressed() {
+
+
+        val bulder = AlertDialog.Builder(this)
+
+        bulder.setTitle("Estas seguro que quieres salir")
+        bulder.setMessage("perderas los cambios")
+        bulder.setPositiveButton("si , Salir",{ _, _ ->
+            finish()
+        })
+
+            bulder.setNegativeButton("continuar registro"){
+                dialogInterface, _ ->
+                dialogInterface.dismiss()
+            }
+
+        val dialog = bulder.create()
+
+            dialog.show()
+//        super.onBackPressed()
+
+        }
+    }
 
 
