@@ -15,6 +15,7 @@
     <string name="blanco">#FFFFF</string>
     <string name="blanquito">#FFFFFF</string>
     <string name="Rojo">#FF2751</string>
+    <string name="RojoClaro">#FF728C</string>
     <string name="azul">#4DB6AC</string>
     <string name="verde">#66BB6A</string>
     <string name="bug">#26A69A</string>

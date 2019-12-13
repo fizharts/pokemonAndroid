@@ -1,5 +1,7 @@
 package com.example.apidos
 
+import android.app.ProgressDialog
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.GetChars
@@ -15,6 +17,7 @@ import com.example.apidos.modelos.ObjetoPokemon
 import com.example.apidos.modelos.Pokemons
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_poke.*
+import kotlinx.android.synthetic.main.progress_bar.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -30,9 +33,18 @@ class PokeActivity : AppCompatActivity() {
     private  var arrayPokemones = ArrayList<PokemonImagen>()
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_poke)
+
+        var progressBar = ProgressBar(
+            this,
+            null,
+            android.R.attr.progressBarStyle
+        )
+
+        progressBar.visibility = View.VISIBLE
 
 
 
@@ -40,15 +52,17 @@ class PokeActivity : AppCompatActivity() {
 
 
 
-
-
-
-
     }
 
     private fun verPkemones() {
 
+
+
+
         val verPokes = servicioPokemones.getData()
+
+
+
 
 
         verPokes.enqueue(object : Callback<ObjetoPokemon> {

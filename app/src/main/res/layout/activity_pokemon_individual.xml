@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DFDFDF"
+
     android:orientation="vertical"
     tools:context=".PokemonIndividual">
 
@@ -10,78 +13,101 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="20dp">
-
-        <ImageView
-            android:id="@+id/ivPokemon"
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:layout_weight="1"
-
-            android:minWidth="200dp"
-            android:src="@drawable/ic_adb_black_24dp" />
-
-
-        <ImageView
-            android:id="@+id/ivPokemonBack"
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:layout_weight="1"
-
-            android:minWidth="200dp"
-            android:src="@drawable/ic_adb_black_24dp" />
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_margin="20dp"
+        android:background="@color/Blanco"
+        android:elevation="4dp"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tvTextoPokemon"
+            android:id="@+id/numeroPokemon"
             android:layout_width="match_parent"
+            android:textSize="20dp"
+            android:padding="10dp"
             android:layout_height="wrap_content"
+            tools:text="#12"></TextView>
 
-            android:layout_weight="1"
-            android:elevation="20dp"
-            android:padding="5dp"
-            android:textAlignment="center"
-            android:textColor="@color/Blanco"
-            android:textSize="20sp"
-            tools:background="@color/colorAccent"
-            tools:text="Pokemon" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="20dp">
+
+                <ImageView
+                    android:id="@+id/ivPokemon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+
+
+                    android:minWidth="500dp"
+                    android:src="@drawable/ic_adb_black_24dp" />
+
+
+                <ImageView
+                    android:id="@+id/ivPokemonBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:minWidth="200dp"
+
+                    android:src="@drawable/ic_adb_black_24dp"
+                    android:visibility="gone" />
+
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/TipoPokemons"
+                android:id="@+id/tvTextoPokemon"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+                android:elevation="5dp"
                 android:padding="5dp"
-                android:layout_gravity="center_horizontal"
-                android:textColor="#fff"
-                android:textSize="20sp"
                 android:textAlignment="center"
-                tools:background="@color/cardview_dark_background"
-                tools:text="Tipo" />
+                android:textColor="@color/Blanco"
+                android:textSize="20sp"
+                tools:background="@color/colorAccent"
+                tools:text="Pokemon" />
+
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:layout_weight="1"-->
+            <!--                android:orientation="horizontal">-->
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/TipoPokemons"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="match_parent"-->
+            <!--                    android:layout_gravity="center_horizontal"-->
+            <!--                    android:padding="5dp"-->
+            <!--                    android:textAlignment="center"-->
+            <!--                    android:textColor="#fff"-->
+            <!--                    android:textSize="20sp"-->
+            <!--                    tools:background="@color/cardview_dark_background"-->
+            <!--                    tools:text="Tipo" />-->
+            <!--            </LinearLayout>-->
+
+
         </LinearLayout>
 
 
+        <TextView
+            android:id="@+id/tvTipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+
+
     </LinearLayout>
-
-
-    <TextView
-        android:id="@+id/tvTipo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal" />
 
 
 </LinearLayout>

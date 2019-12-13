@@ -22,6 +22,9 @@ class PokemonIndividual : AppCompatActivity() {
         ServicioPokemones.create()
     }
 
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pokemon_individual)
@@ -60,7 +63,7 @@ class PokemonIndividual : AppCompatActivity() {
                         tvTextoPokemon.setBackgroundColor(Color.parseColor(getString(R.string.morado)))
                         tvTextoPokemon.text = res?.species?.name
 
-
+                        numeroPokemon.text = ("# $id")
 
                         if (tipo != null) {
                             tipo.forEach {
@@ -69,41 +72,41 @@ class PokemonIndividual : AppCompatActivity() {
                                 when(it.type.name){
 
                                     "fire" -> {
-                                        TipoPokemons.setBackgroundColor(Color.parseColor(getString(
-                                            R.string.Rojo)))
+                                      //  TipoPokemons.setBackgroundColor(Color.parseColor(getString(
+                                           // R.string.RojoClaro)))
                                         tvTextoPokemon.setBackgroundColor(Color.parseColor(getString(R.string.Rojo)))
-                                        TipoPokemons.text = "Fire"
+                                      //  TipoPokemons.text = "Fire"
                                     }
 
 
 
                                     "water" -> {
-                                        TipoPokemons.setBackgroundColor(Color.parseColor(getString(
-                                            R.string.azul)))
+                                     //   TipoPokemons.setBackgroundColor(Color.parseColor(getString(
+                                          //  R.string.azul)))
                                         tvTextoPokemon.setBackgroundColor(Color.parseColor(getString(R.string.azul)))
-                                        TipoPokemons.text = "Water"
+                                     //   TipoPokemons.text = "Water"
                                     }
 
                                     "grass" -> {
-                                        TipoPokemons.setBackgroundColor(Color.parseColor(getString(
-                                            R.string.verde)))
+                                      //  TipoPokemons.setBackgroundColor(Color.parseColor(getString(
+                                           // R.string.verde)))
                                         tvTextoPokemon.setBackgroundColor(Color.parseColor(getString(R.string.verde)))
-                                        TipoPokemons.text = "Grass"
+                                      //  TipoPokemons.text = "Grass"
                                     }
 
                                     "bug"-> {
-                                        TipoPokemons.setBackgroundColor(Color.parseColor(getString(
-                                            R.string.bug)))
+                                      //  TipoPokemons.setBackgroundColor(Color.parseColor(getString(
+                                          //  R.string.bug)))
                                         tvTextoPokemon.setBackgroundColor(Color.parseColor(getString(R.string.bug)))
-                                        TipoPokemons.text = "bug"
+                                     //   TipoPokemons.text = "bug"
 
                                     }
 
                                     "flying" -> {
-                                        TipoPokemons.setBackgroundColor(Color.parseColor(getString(
-                                            R.string.flying)))
+                                     //   TipoPokemons.setBackgroundColor(Color.parseColor(getString(
+                                        //    R.string.flying)))
                                         tvTextoPokemon.setBackgroundColor(Color.parseColor(getString(R.string.flying)))
-                                        TipoPokemons.text = "flying"
+                                      //  TipoPokemons.text = "flying"
                                     }
 
 
