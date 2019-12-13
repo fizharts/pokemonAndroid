@@ -19,6 +19,7 @@
     <string name="verde">#66BB6A</string>
     <string name="bug">#26A69A</string>
     <string name="flying">#42A5F5</string>
-    <string name="colorPrueba">#E61212</string>
+    <string name="colorPrueba">#EC407A</string>
+    <string name="normal">#EC407A</string>
 
 </resources>

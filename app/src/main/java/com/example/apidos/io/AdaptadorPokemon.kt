@@ -57,7 +57,16 @@ class AdaptadorPokemon(
         holder.numero.text = adaptadorPokemon[position].id.toString()
         holder.texto.text = adaptadorPokemon[position].species.name
         val id = adaptadorPokemon[position].id
-        val tipoColor = adaptadorPokemon[position].types[0].type.name
+
+        var tipoColor:String
+
+
+        if (adaptadorPokemon[position].types.size > 1){
+             tipoColor = adaptadorPokemon[position].types[1].type.name
+        }else{
+             tipoColor = adaptadorPokemon[position].types[0].type.name
+        }
+
         holder.tipoPruebas.text = tipoColor
 
 
@@ -93,6 +102,9 @@ class AdaptadorPokemon(
                     holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString(R.string.morado)))
 
                 }
+                 "normal"->{
+                     holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString( R.string.normal)))
+                 }
 
             }
 
