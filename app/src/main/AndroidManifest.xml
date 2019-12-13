@@ -13,10 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".RecyclerActivity"></activity>
         <activity
             android:name=".PokemonIndividual"
-            android:parentActivityName=".PokeActivity"
-            android:launchMode="singleInstance"/>
+            android:launchMode="singleInstance"
+            android:parentActivityName=".PokeActivity" />
         <activity
             android:name=".PokeActivity"
             android:launchMode="singleInstance"

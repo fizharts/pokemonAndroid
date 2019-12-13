@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.GetChars
 import android.view.View
 import android.widget.*
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.apidos.io.AdaptadorPokemon
 import com.example.apidos.io.GetPokemons
@@ -112,7 +113,7 @@ class PokeActivity : AppCompatActivity() {
                     if (res != null) {
                         arrayPokemones.add(res)
 
-                        Rv_aqui.layoutManager = LinearLayoutManager(this@PokeActivity)
+                        Rv_aqui.layoutManager = GridLayoutManager(this@PokeActivity,2)
                         Rv_aqui.adapter = AdaptadorPokemon(arrayPokemones,this@PokeActivity)
                     }
 

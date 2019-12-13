@@ -5,7 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="center"
+
+    android:elevation="20dp"
+    android:layout_margin="10dp"
     android:orientation="vertical"
     android:padding="10dp">
 
@@ -21,20 +25,29 @@
         android:padding="10dp">
 
         <LinearLayout
+            android:background="@color/colorAccent"
+            android:id="@+id/llFondoTipo"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:orientation="horizontal">
 
             <TextView
+                android:textColor="@color/Blanco"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:layout_weight="1"
                 android:id="@+id/tv_numero"
                 android:text="1" />
 
             <TextView
                 android:id="@+id/tv_pokemon"
+                android:textColor="@color/Blanco"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Aqui va texto" />
         </LinearLayout>
 
@@ -49,28 +62,16 @@
 
             <ImageView
                 android:id="@+id/IvUno"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:minHeight="100dp"
                 tools:background="@drawable/ic_launcher_background" />
 
-            <ImageView
-
-                android:id="@+id/IvDos"
-                android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:background="@drawable/ic_launcher_background"/>
-
-            <ImageView
-                android:id="@+id/IvTres"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:background="@drawable/ic_launcher_background"/>
-
-            <ImageView
-                android:id="@+id/IvCuatro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:background="@drawable/ic_launcher_background" />
+                android:text="Tipo"
+                android:id="@+id/tipoPruebas"></TextView>
 
         </LinearLayout>
 
