@@ -1,5 +1,6 @@
 package com.example.apidos
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -37,6 +38,7 @@ class PokemonIndividual : AppCompatActivity() {
                         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                     }
 
+                    @SuppressLint("SetTextI18n")
                     override fun onResponse(
                         call: Call<PokemonImagen>,
                         response: Response<PokemonImagen>
@@ -95,7 +97,7 @@ class PokemonIndividual : AppCompatActivity() {
                                         tvTextoPokemon.setBackgroundColor(Color.parseColor(getString(R.string.bug)))
                                         TipoPokemons.text = "bug"
 
-                                    } 
+                                    }
 
                                     "flying" -> {
                                         TipoPokemons.setBackgroundColor(Color.parseColor(getString(
