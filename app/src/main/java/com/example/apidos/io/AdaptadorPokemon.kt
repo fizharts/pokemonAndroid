@@ -33,6 +33,8 @@ import kotlinx.android.synthetic.main.item_pokemon.view.*
     
     
         }
+
+
     
         // devuelve la cantidad de elementos
         override fun getItemCount(): Int {

@@ -64,7 +64,7 @@ class PokemonIndividual : AppCompatActivity() {
                             tipo.forEach {
 
 
-                                when(it.type.name.toString()){
+                                when(it.type.name){
 
                                     "fire" -> {
                                         TipoPokemons.setBackgroundColor(Color.parseColor(getString(
