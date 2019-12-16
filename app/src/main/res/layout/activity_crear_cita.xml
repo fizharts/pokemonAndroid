@@ -17,7 +17,7 @@
         android:padding="10dp"
         android:text="@string/inicioSesion"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/Blanco"></TextView>
+        android:textColor="@color/Blanco" />
 
 
     <ScrollView
@@ -49,11 +49,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:text="Fecha "></TextView>
+                    android:text="Fecha " />
+
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/sPrueba"></Spinner>
+                    android:id="@+id/sPrueba" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -61,15 +62,15 @@
                     android:id="@+id/etFecha"
                     android:focusable="false"
                     android:clickable="true"
-                    android:inputType="date"></EditText>
-
+                    android:inputType="date"
+                    android:autofillHints="" />
 
 
                 <Spinner
                     android:id="@+id/spinnerOptions"
                     android:layout_width="match_parent"
 
-                    android:layout_height="wrap_content"></Spinner>
+                    android:layout_height="wrap_content" />
 
                 <RadioGroup
                     android:id="@+id/rGrup"
@@ -79,7 +80,7 @@
                     <RadioButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="uno"></RadioButton>
+                        android:text="uno" />
 
                 </RadioGroup>
 
@@ -94,7 +95,7 @@
                     android:paddingTop="12dp"
                     android:paddingRight="60dp"
                     android:text="siguiente"
-                    android:textColor="@color/Blanco"></Button>
+                    android:textColor="@color/Blanco" />
 
 
             </LinearLayout>

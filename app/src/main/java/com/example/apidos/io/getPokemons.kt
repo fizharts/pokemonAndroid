@@ -1,6 +1,8 @@
 package com.example.apidos.io
 
+import com.example.apidos.modelos.ObjetoPokemon
 import com.example.apidos.modelos.Pokemons
+
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -12,6 +14,8 @@ interface GetPokemons {
 
             @GET("pokemon")
                         abstract fun getData(): Call<ArrayList<Pokemons>>
+
+
 
 
             @GET("pokemon/{id}")
