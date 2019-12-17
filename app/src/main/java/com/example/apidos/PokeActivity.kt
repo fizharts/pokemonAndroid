@@ -27,6 +27,7 @@ class PokeActivity : AppCompatActivity() {
 
     private  var arrayPokemones = ArrayList<PokemonImagen>()
 
+    private  var arrayTypos = ArrayList<PokemonImagen>()
 
 
 
@@ -54,6 +55,10 @@ class PokeActivity : AppCompatActivity() {
     }
 
     private fun getTypes() {
+
+
+
+
 
         val getPokemonTypes = servicioPokemones.getType()
 
@@ -144,7 +149,7 @@ class PokeActivity : AppCompatActivity() {
                                         response: Response<PokemonPorTipo>
                                     ) {
 
-
+                                            arrayTypos.clear()
 
                                         var res = response.body()
 
@@ -164,7 +169,7 @@ class PokeActivity : AppCompatActivity() {
 
 
 
-                                                obtenerImagen(id)
+                                                obtenerPorTipo(id)
 
 
                                             }
@@ -240,6 +245,9 @@ class PokeActivity : AppCompatActivity() {
                 }
 
 
+                arrayTypos.removeAll(arrayPokemones)
+
+
 
 
 
@@ -279,6 +287,63 @@ class PokeActivity : AppCompatActivity() {
 
                         Rv_aqui.layoutManager = GridLayoutManager(this@PokeActivity,2)
                         Rv_aqui.adapter = AdaptadorPokemon(arrayPokemones,this@PokeActivity)
+                    }
+
+
+
+
+
+                    progressBar.visibility = View.GONE
+
+
+
+                }
+            }
+
+        })
+
+
+    }
+
+
+
+
+
+
+    private fun obtenerPorTipo(id: String) {
+
+
+
+
+
+        Rv_aqui.visibility = View.GONE
+        Rv_tipos.visibility = View.VISIBLE
+
+        val obtenerImagenes = servicioPokemones.getImagen(id)
+
+        obtenerImagenes.enqueue(object : Callback<PokemonImagen> {
+            override fun onFailure(call: Call<PokemonImagen>, t: Throwable) {
+                Toast.makeText(this@PokeActivity, "Problemas al cargar datos", Toast.LENGTH_SHORT)
+                    .show()
+            }
+
+            override fun onResponse(
+                call: Call<PokemonImagen>,
+                response: Response<PokemonImagen>
+            ) {
+                if (response.isSuccessful) {
+
+                    val res = response.body()
+
+
+
+
+
+                    if (res != null) {
+                        arrayTypos.add(res)
+
+                        Rv_tipos.layoutManager = GridLayoutManager(this@PokeActivity,2)
+                        Rv_tipos.adapter = AdaptadorPokemon(arrayTypos,this@PokeActivity)
                     }
 
 

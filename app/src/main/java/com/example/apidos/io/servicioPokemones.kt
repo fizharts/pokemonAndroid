@@ -11,7 +11,7 @@ import retrofit2.http.Path
 interface ServicioPokemones {
 
 
-    @GET("pokemon/?offset=0&limit=150")
+    @GET("pokemon/?offset=0&limit=100")
     abstract fun getData(): Call<ObjetoPokemon>
 
     @GET("pokemon/{id}")

@@ -54,6 +54,9 @@ class AdaptadorPokemon(
 
         Picasso.get().load(adaptadorPokemon[position].sprites.front_default).into(holder.uno)
 
+
+
+
         holder.numero.text = adaptadorPokemon[position].id.toString()
         holder.texto.text = adaptadorPokemon[position].species.name
         val id = adaptadorPokemon[position].id
