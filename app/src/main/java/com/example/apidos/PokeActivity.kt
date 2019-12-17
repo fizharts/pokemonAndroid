@@ -27,7 +27,6 @@ class PokeActivity : AppCompatActivity() {
 
     private  var arrayPokemones = ArrayList<PokemonImagen>()
 
-    private  var arrayTypos = ArrayList<PokemonImagen>()
 
 
 
@@ -41,13 +40,15 @@ class PokeActivity : AppCompatActivity() {
             android.R.attr.progressBarStyle
         )
 
-        progressBar.visibility = View.VISIBLE
+
 
 
 
         getTypes()
 
-        verPkemones()
+        verPkemones().also {
+            progressBar.visibility = View.GONE
+        }
 
 
 
@@ -55,7 +56,6 @@ class PokeActivity : AppCompatActivity() {
     }
 
     private fun getTypes() {
-
 
 
 
@@ -126,6 +126,9 @@ class PokeActivity : AppCompatActivity() {
                         ) {
 
                          var pruebaa  =  p0?.getItemAtPosition(p2).toString()
+                            progressBar.visibility = View.VISIBLE
+
+                            arrayPokemones.clear()
 
 
                             if (pruebaa!= "Tipo"){
@@ -149,7 +152,8 @@ class PokeActivity : AppCompatActivity() {
                                         response: Response<PokemonPorTipo>
                                     ) {
 
-                                            arrayTypos.clear()
+
+
 
                                         var res = response.body()
 
@@ -162,17 +166,24 @@ class PokeActivity : AppCompatActivity() {
 
 
 
-                                            Toast.makeText(this@PokeActivity,res.pokemon[0].pokemon.name, Toast.LENGTH_SHORT).show()
+
+
 
                                             res.pokemon.forEach {
                                                 var id = it.pokemon.url.substring(34, it.pokemon.url.length - 1)
 
 
 
-                                                obtenerPorTipo(id)
+                                                obtenerImagen(id)
+
+
+                                            }.also {
+                                                Toast.makeText(this@PokeActivity,res.pokemon[0].pokemon.name, Toast.LENGTH_SHORT).show()
+                                                progressBar.visibility = View.GONE
 
 
                                             }
+
 
 
                                         }
@@ -245,9 +256,6 @@ class PokeActivity : AppCompatActivity() {
                 }
 
 
-                arrayTypos.removeAll(arrayPokemones)
-
-
 
 
 
@@ -286,71 +294,16 @@ class PokeActivity : AppCompatActivity() {
                         arrayPokemones.add(res)
 
                         Rv_aqui.layoutManager = GridLayoutManager(this@PokeActivity,2)
-                        Rv_aqui.adapter = AdaptadorPokemon(arrayPokemones,this@PokeActivity)
+                        Rv_aqui.adapter = AdaptadorPokemon(arrayPokemones,this@PokeActivity).also {
+                            progressBar.visibility = View.GONE
+                        }
                     }
 
 
 
 
 
-                    progressBar.visibility = View.GONE
 
-
-
-                }
-            }
-
-        })
-
-
-    }
-
-
-
-
-
-
-    private fun obtenerPorTipo(id: String) {
-
-
-
-
-
-        Rv_aqui.visibility = View.GONE
-        Rv_tipos.visibility = View.VISIBLE
-
-        val obtenerImagenes = servicioPokemones.getImagen(id)
-
-        obtenerImagenes.enqueue(object : Callback<PokemonImagen> {
-            override fun onFailure(call: Call<PokemonImagen>, t: Throwable) {
-                Toast.makeText(this@PokeActivity, "Problemas al cargar datos", Toast.LENGTH_SHORT)
-                    .show()
-            }
-
-            override fun onResponse(
-                call: Call<PokemonImagen>,
-                response: Response<PokemonImagen>
-            ) {
-                if (response.isSuccessful) {
-
-                    val res = response.body()
-
-
-
-
-
-                    if (res != null) {
-                        arrayTypos.add(res)
-
-                        Rv_tipos.layoutManager = GridLayoutManager(this@PokeActivity,2)
-                        Rv_tipos.adapter = AdaptadorPokemon(arrayTypos,this@PokeActivity)
-                    }
-
-
-
-
-
-                    progressBar.visibility = View.GONE
 
 
 

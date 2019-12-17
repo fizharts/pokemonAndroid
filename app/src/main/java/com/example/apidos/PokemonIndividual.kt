@@ -2,16 +2,22 @@ package com.example.apidos
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.ColorFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.setPadding
 import com.example.apidos.io.PokemonImagen
 import com.example.apidos.io.ServicioPokemones
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_poke.*
 import kotlinx.android.synthetic.main.activity_pokemon_individual.*
+import kotlinx.android.synthetic.main.activity_pokemon_individual.view.*
 import retrofit2.Call
 import retrofit2.Response
 import javax.security.auth.callback.Callback
@@ -33,6 +39,11 @@ class PokemonIndividual : AppCompatActivity() {
         val id = getIntent().getExtras()?.getString("id")
 
 
+
+
+
+
+
         if (id != null) {
             val individualPoke: Call<PokemonImagen> = servicioPokemon.getImagen(id).also { it ->
 
@@ -50,18 +61,70 @@ class PokemonIndividual : AppCompatActivity() {
 
                         val res =  response.body()
                         val tipo = res?.types
+                        val ability = res?.stats
+
+                        val speed =  ability?.get(0)?.base_stat
+                        val specialAtack = ability?.get(1)?.base_stat
+                        val defense = ability?.get(2)?.base_stat
+                        val attack = ability?.get(3)?.base_stat
+
+                        val typesEachPokemon = res?.types
+
+                            typesEachPokemon?.forEach {
+                                var litleTypes = TextView(this@PokemonIndividual)
 
 
-//
+                                var nombre = it.type.name
+                                litleTypes.text =  " $nombre /"
+
+
+                                tvipo.addView(litleTypes)
+
+                            }
+
+
 
                         if (res != null) {
                             Picasso.get().load(res.sprites.front_default).into(ivPokemon)
-                            Picasso.get().load(res.sprites.back_default).into(ivPokemonBack)
+
                         }
 
 
                         tvTextoPokemon.setBackgroundColor(Color.parseColor(getString(R.string.morado)))
                         tvTextoPokemon.text = res?.species?.name
+
+
+                        if (speed != null) {
+                            speedCantidad.text = speed.toString()
+                            pbSpeed.progress = speed
+                            pbSpeed.progressTintList = ColorStateList.valueOf(Color.parseColor(getString(R.string.uno)))
+                        }
+
+
+                        if (specialAtack != null) {
+                            specialDefenseNum.text = specialAtack.toString()
+                            pbSpecialDefence.progress = specialAtack
+                            pbSpecialDefence.progressTintList = ColorStateList.valueOf(Color.parseColor(getString(R.string.dos)))
+                        }
+
+
+                        if (defense != null){
+                            tvDefense.text = defense.toString()
+                            pbdefense.progress = defense
+                            pbdefense.progressTintList = ColorStateList.valueOf(Color.parseColor(getString(R.string.tres)))
+                        }
+
+
+                        if (attack != null){
+                            tvattack.text = attack.toString()
+                            pbattack.progress = attack
+                            pbattack.progressTintList = ColorStateList.valueOf(Color.parseColor(getString(R.string.cuatro)))
+                        }
+
+
+
+
+
 
                         numeroPokemon.text = ("# $id")
 
@@ -72,48 +135,39 @@ class PokemonIndividual : AppCompatActivity() {
                                 when(it.type.name){
 
                                     "fire" -> {
-                                      //  TipoPokemons.setBackgroundColor(Color.parseColor(getString(
-                                           // R.string.RojoClaro)))
                                         tvTextoPokemon.setBackgroundColor(Color.parseColor(getString(R.string.Rojo)))
-                                      //  TipoPokemons.text = "Fire"
+                                        numeroPokemon.setBackgroundColor(Color.parseColor(getString(R.string.Rojo)))
                                     }
 
 
 
                                     "water" -> {
-                                     //   TipoPokemons.setBackgroundColor(Color.parseColor(getString(
-                                          //  R.string.azul)))
                                         tvTextoPokemon.setBackgroundColor(Color.parseColor(getString(R.string.azul)))
-                                     //   TipoPokemons.text = "Water"
+                                        numeroPokemon.setBackgroundColor(Color.parseColor(getString(R.string.azul)))
                                     }
 
                                     "grass" -> {
-                                      //  TipoPokemons.setBackgroundColor(Color.parseColor(getString(
-                                           // R.string.verde)))
                                         tvTextoPokemon.setBackgroundColor(Color.parseColor(getString(R.string.verde)))
-                                      //  TipoPokemons.text = "Grass"
+                                        numeroPokemon.setBackgroundColor(Color.parseColor(getString(R.string.verde)))
                                     }
 
                                     "bug"-> {
-                                      //  TipoPokemons.setBackgroundColor(Color.parseColor(getString(
-                                          //  R.string.bug)))
                                         tvTextoPokemon.setBackgroundColor(Color.parseColor(getString(R.string.bug)))
-                                     //   TipoPokemons.text = "bug"
+                                        numeroPokemon.setBackgroundColor(Color.parseColor(getString(R.string.bug)))
 
                                     }
 
                                     "flying" -> {
-                                     //   TipoPokemons.setBackgroundColor(Color.parseColor(getString(
-                                        //    R.string.flying)))
                                         tvTextoPokemon.setBackgroundColor(Color.parseColor(getString(R.string.flying)))
-                                      //  TipoPokemons.text = "flying"
+                                        numeroPokemon.setBackgroundColor(Color.parseColor(getString(R.string.flying)))
+
                                     }
 
 
 
                                 }
 
-                                tvTipo.text = it.type.name
+//                                tvTipo.text = it.type.name
 
                             }
                         }

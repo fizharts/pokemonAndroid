@@ -10,104 +10,294 @@
     tools:context=".PokemonIndividual">
 
 
-    <LinearLayout
+    <ScrollView
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:background="@color/Blanco"
-        android:elevation="4dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/numeroPokemon"
-            android:layout_width="match_parent"
-            android:textSize="20dp"
-            android:padding="10dp"
-            android:layout_height="wrap_content"
-            tools:text="#12"></TextView>
-
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@color/Blanco"
+            android:elevation="4dp"
             android:orientation="vertical"
-            android:padding="10dp">
+
+            android:padding="10sp">
 
             <LinearLayout
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="20dp">
+                android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/ivPokemon"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-
-
-                    android:minWidth="500dp"
-                    android:src="@drawable/ic_adb_black_24dp" />
-
-
-                <ImageView
-                    android:id="@+id/ivPokemonBack"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:minWidth="200dp"
+                    android:orientation="horizontal">
 
-                    android:src="@drawable/ic_adb_black_24dp"
-                    android:visibility="gone" />
+                    <TextView
+                        android:id="@+id/numeroPokemon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10sp"
+                        android:background="@color/cardview_dark_background"
+                        android:padding="5sp"
+                        android:paddingStart="10dp"
+
+                        android:textColor="@color/Blanco"
+                        android:textSize="12sp"
+                        tools:text="#12" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvipo"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:orientation="horizontal">
+
+
+
+                </LinearLayout>
+
+
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/tvTextoPokemon"
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
 
-                android:layout_weight="1"
-                android:elevation="5dp"
-                android:padding="5dp"
-                android:textAlignment="center"
-                android:textColor="@color/Blanco"
-                android:textSize="20sp"
-                tools:background="@color/colorAccent"
-                tools:text="Pokemon" />
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/ivPokemon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
 
 
-            <!--            <LinearLayout-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="match_parent"-->
-            <!--                android:layout_weight="1"-->
-            <!--                android:orientation="horizontal">-->
+                        android:minWidth="500dp"
+                        android:src="@drawable/ic_adb_black_24dp" />
 
-            <!--                <TextView-->
-            <!--                    android:id="@+id/TipoPokemons"-->
-            <!--                    android:layout_width="match_parent"-->
-            <!--                    android:layout_height="match_parent"-->
-            <!--                    android:layout_gravity="center_horizontal"-->
-            <!--                    android:padding="5dp"-->
-            <!--                    android:textAlignment="center"-->
-            <!--                    android:textColor="#fff"-->
-            <!--                    android:textSize="20sp"-->
-            <!--                    tools:background="@color/cardview_dark_background"-->
-            <!--                    tools:text="Tipo" />-->
-            <!--            </LinearLayout>-->
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvTextoPokemon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+                    android:elevation="5dp"
+                    android:padding="5dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/Blanco"
+                    android:textSize="15sp"
+                    tools:background="@color/colorAccent"
+                    tools:text="Pokemon" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="12dp"
+                android:paddingTop="5dp"
+                android:paddingRight="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Speed:    "
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/speedCantidad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="29"
+                        android:textSize="11sp">
+
+                    </TextView>
+                </LinearLayout>
+
+
+                <ProgressBar
+                    android:id="@+id/pbSpeed"
+                    style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorAccent"
+                    android:foregroundTint="@color/colorPrimary"
+                    android:max="100"
+                    android:progress="50" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+
+                android:paddingLeft="12dp"
+                android:paddingTop="5dp"
+                android:paddingRight="12dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Special-defense   "
+                        android:textSize="11sp" />
+
+
+                    <TextView
+                        android:id="@+id/specialDefenseNum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:text="29"
+                        android:textSize="11sp">
+
+                    </TextView>
+                </LinearLayout>
+
+
+                <ProgressBar
+                    android:id="@+id/pbSpecialDefence"
+                    style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorAccent"
+                    android:foregroundTint="@color/colorPrimary"
+                    android:max="100"
+                    android:progress="50" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="12dp"
+                android:paddingTop="5dp"
+                android:paddingRight="12dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Defense   "
+                        android:textSize="11dp"></TextView>
+
+
+                    <TextView
+                        android:id="@+id/tvDefense"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:text="29"
+                        android:textSize="11dp">
+
+                    </TextView>
+                </LinearLayout>
+
+
+                <ProgressBar
+                    android:id="@+id/pbdefense"
+                    style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorAccent"
+                    android:foregroundTint="@color/colorPrimary"
+                    android:max="100"
+                    android:progress="50" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="12dp"
+                android:paddingTop="5dp"
+                android:paddingRight="12dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Attack   "
+                        android:textSize="11dp"></TextView>
+
+
+                    <TextView
+                        android:id="@+id/tvattack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:text="29"
+                        android:textSize="11dp">
+
+                    </TextView>
+                </LinearLayout>
+
+
+                <ProgressBar
+                    android:id="@+id/pbattack"
+                    style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorAccent"
+                    android:foregroundTint="@color/colorPrimary"
+                    android:max="100"
+                    android:progress="50" />
+
+
+            </LinearLayout>
+
+            ¿
 
 
         </LinearLayout>
-
-
-        <TextView
-            android:id="@+id/tvTipo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal" />
-
-
-    </LinearLayout>
+    </ScrollView>
 
 
 </LinearLayout>

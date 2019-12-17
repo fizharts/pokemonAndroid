@@ -22,5 +22,12 @@
     <string name="flying">#42A5F5</string>
     <string name="colorPrueba">#EC407A</string>
     <string name="normal">#EC407A</string>
+    <string name="rojito">#FF2751</string>
+
+
+    <string name="uno">#EC407A</string>
+    <string name="dos">#26A69A</string>
+    <string name="tres">#9CCC65</string>
+    <string name="cuatro">#EF5350</string>
 
 </resources>

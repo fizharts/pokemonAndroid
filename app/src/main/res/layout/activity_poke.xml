@@ -9,20 +9,34 @@
     android:background="#E2E2E2"
     tools:context=".PokeActivity">
 
+
     <ProgressBar
         android:id="@+id/progressBar"
+
         style="?android:attr/progressBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <Spinner
+    <LinearLayout
         android:layout_width="match_parent"
-        android:tooltipText="selecciona "
-        android:id="@+id/sTipos"
+        android:orientation="horizontal"
+        android:elevation="10dp"
+        android:layout_height="wrap_content"
+        android:background="@color/Blanco">
+        <Spinner
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:tooltipText="selecciona "
+            android:id="@+id/sTipos"
 
-        android:layout_height="wrap_content">
 
-    </Spinner>
+            android:layout_height="wrap_content">
+
+        </Spinner>
+
+    </LinearLayout>
+
+
 
 
     <LinearLayout
