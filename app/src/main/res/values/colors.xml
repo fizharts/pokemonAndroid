@@ -6,5 +6,7 @@
     <color name="colorButton">#EC407A</color>
     <color name="Blanco">#fff</color>
     <color name="transparente">#4BFFFFFF</color>
+    <color name="seleccionado">#FF2751</color>
+    <color name="fondGRis">#DADADA</color>
     <string name="fondo">#B8B8B8</string>
 </resources>

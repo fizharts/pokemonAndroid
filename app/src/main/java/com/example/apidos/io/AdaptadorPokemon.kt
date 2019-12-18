@@ -77,17 +77,18 @@ class AdaptadorPokemon(
 
 
                 "fire" -> {
-                    holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString(R.string.Rojo)))
+                    holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString(R.string.fire)))
+
                 }
 
 
 
                 "water" -> {
-                    holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString(R.string.azul)))
+                    holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString(R.string.water)))
                 }
 
                 "grass" -> {
-                    holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString(R.string.verde)))
+                    holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString(R.string.grass)))
 
                 }
 
@@ -108,6 +109,41 @@ class AdaptadorPokemon(
                  "normal"->{
                      holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString( R.string.normal)))
                  }
+                "ghost"->{
+                     holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString( R.string.ghost)))
+                 }
+                "dark" -> {
+                    holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString(R.string.dark)))
+                }
+                "electric" -> {
+                    holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString(R.string.electric)))
+                }
+                "fairy" -> {
+                    holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString(R.string.fairy)))
+                }
+                "fighting" -> {
+                    holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString(R.string.fighting)))
+                }
+                "rock" -> {
+                    holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString(R.string.rock)))
+                }
+                "ground" -> {
+                    holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString(R.string.ground)))
+                }
+                "poison" -> {
+                    holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString(R.string.poison)))
+                }
+                "psychic" -> {
+                    holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString(R.string.psychic)))
+                }
+                "steel" -> {
+                    holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString(R.string.steel)))
+                }
+                "dragon" -> {
+                    holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString(R.string.dragon)))
+                }
+
+
 
             }
 

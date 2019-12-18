@@ -14,20 +14,38 @@
     <string name="morado">#7E57C2</string>
     <string name="blanco">#FFFFF</string>
     <string name="blanquito">#FFFFFF</string>
-    <string name="Rojo">#FF2751</string>
+    <string name="fire">#FF2751</string>
     <string name="RojoClaro">#FF728C</string>
-    <string name="azul">#4DB6AC</string>
-    <string name="verde">#66BB6A</string>
+
+
+    <string name="water">#00ACC1</string>
+    <string name="grass">#66BB6A</string>
     <string name="bug">#26A69A</string>
     <string name="flying">#42A5F5</string>
     <string name="colorPrueba">#EC407A</string>
     <string name="normal">#EC407A</string>
     <string name="rojito">#FF2751</string>
+    <string name="negro">#4D4D4D</string>
 
 
     <string name="uno">#EC407A</string>
     <string name="dos">#26A69A</string>
     <string name="tres">#9CCC65</string>
     <string name="cuatro">#EF5350</string>
+    <string name="cinco">#FFEE58</string>
+    <string name="fondNeutro">#DADADA</string>
+    <string name="ghost">#9575CD</string>
+    <string name="ice">#4DD0E1</string>
+    <string name="dark">#3A3A3A</string>
+    <string name="electric">#FFD54F</string>
+    <string name="fairy">#F06292</string>
+    <string name="fighting">#29B6F6</string>
+    <string name="ground">#A25F50</string>
+    <string name="rock">#665A5A</string>
+    <string name="poison">#AB47BC</string>
+    <string name="steel">#797979</string>
+    <string name="psychic">#5C6BC0</string>
+    <string name="dragon">#FF4081</string>
+
 
 </resources>

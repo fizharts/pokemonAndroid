@@ -61,11 +61,11 @@ class AdaptadorPorTipo(private val adapatadorPorTipo: ArrayList<PokemonImagen> ,
     var tipoColor:String
 
 
-    if (adapatadorPorTipo[position].types.size > 1){
-        tipoColor = adapatadorPorTipo[position].types[1].type.name
-    }else{
+
+
+
         tipoColor = adapatadorPorTipo[position].types[0].type.name
-    }
+
 
     holder.tipoPruebas.text = tipoColor
 
@@ -74,17 +74,17 @@ class AdaptadorPorTipo(private val adapatadorPorTipo: ArrayList<PokemonImagen> ,
 
 
         "fire" -> {
-            holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString(R.string.Rojo)))
+            holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString(R.string.fire)))
         }
 
 
 
         "water" -> {
-            holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString(R.string.azul)))
+            holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString(R.string.water)))
         }
 
         "grass" -> {
-            holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString(R.string.verde)))
+            holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString(R.string.grass)))
 
         }
 
@@ -105,6 +105,16 @@ class AdaptadorPorTipo(private val adapatadorPorTipo: ArrayList<PokemonImagen> ,
         "normal"->{
             holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString( R.string.normal)))
         }
+        "ghost" -> {
+            holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString( R.string.ghost)))
+        }
+        "ice" -> {
+            holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString(R.string.ice)))
+        }
+        "dark" -> {
+            holder.llFondoTipo.setBackgroundColor(Color.parseColor(contexto.getString(R.string.dark)))
+        }
+
 
     }
 
