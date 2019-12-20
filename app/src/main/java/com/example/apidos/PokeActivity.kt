@@ -40,7 +40,7 @@ class PokeActivity : AppCompatActivity() {
             android.R.attr.progressBarStyle
         )
 
-
+        progressBar.visibility = View.VISIBLE
 
 
 

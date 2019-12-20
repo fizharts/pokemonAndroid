@@ -8,20 +8,23 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.apidos.io.Move
 import com.example.apidos.io.PokemonImagen
 import com.example.apidos.io.ServicioPokemones
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_pokemon_individual.*
+import kotlinx.android.synthetic.main.item_moves.*
 import retrofit2.Call
 import retrofit2.Response
+import kotlin.math.log
 
 class PokemonIndividual : AppCompatActivity() {
 
-    private val servicioPokemon:ServicioPokemones by lazy {
+    private val servicioPokemon: ServicioPokemones by lazy {
         ServicioPokemones.create()
     }
-
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,11 +40,10 @@ class PokemonIndividual : AppCompatActivity() {
 
 
 
-
         if (id != null) {
             val individualPoke: Call<PokemonImagen> = servicioPokemon.getImagen(id).also { it ->
 
-                it.enqueue(object : retrofit2.Callback<PokemonImagen>{
+                it.enqueue(object : retrofit2.Callback<PokemonImagen> {
                     override fun onFailure(call: Call<PokemonImagen>, t: Throwable) {
                         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                     }
@@ -53,11 +55,11 @@ class PokemonIndividual : AppCompatActivity() {
                     ) {
 
 
-                        val res =  response.body()
+                        val res = response.body()
                         val tipo = res?.types
                         val ability = res?.stats
 
-                        val speed =  ability?.get(0)?.base_stat
+                        val speed = ability?.get(0)?.base_stat
                         val specialAtack = ability?.get(1)?.base_stat
                         val defense = ability?.get(2)?.base_stat
                         val attack = ability?.get(3)?.base_stat
@@ -65,17 +67,47 @@ class PokemonIndividual : AppCompatActivity() {
 
                         val typesEachPokemon = res?.types
 
-                            typesEachPokemon?.forEach {
-                                var litleTypes = TextView(this@PokemonIndividual)
+                        typesEachPokemon?.forEach {
+                            var litleTypes = TextView(this@PokemonIndividual)
 
 
-                                var nombre = it.type.name
-                                litleTypes.text =  " $nombre /"
+                            var nombre = it.type.name
+                            litleTypes.text = " $nombre /"
 
 
-                                tvipo.addView(litleTypes)
+                            tvipo.addView(litleTypes)
 
-                            }
+                        }
+
+
+                        val movesPokemon = res?.moves
+
+                        val arrayMovesPOkemon = ArrayList<Move>()
+
+
+                        movesPokemon?.forEach {
+
+//                            val texto = TextView(this@PokemonIndividual)
+//
+//                            texto.text = it.move.name
+
+//                                    movesAll.addView(texto)
+
+                            arrayMovesPOkemon.add(Move(
+                                it.move,
+                                it.version_group_details
+                            ))
+
+
+
+                        }
+
+
+                        rvMoves.layoutManager = LinearLayoutManager(this@PokemonIndividual)
+                        rvMoves.adapter = AdaptadorMoves(arrayMovesPOkemon,this@PokemonIndividual)
+
+
+
 
 
 
@@ -92,34 +124,39 @@ class PokemonIndividual : AppCompatActivity() {
                         if (speed != null) {
                             speedCantidad.text = speed.toString()
                             pbSpeed.progress = speed
-                            pbSpeed.progressTintList = ColorStateList.valueOf(Color.parseColor(getString(R.string.ghost)))
+                            pbSpeed.progressTintList =
+                                ColorStateList.valueOf(Color.parseColor(getString(R.string.ghost)))
                         }
 
 
                         if (specialAtack != null) {
                             specialDefenseNum.text = specialAtack.toString()
                             pbSpecialDefence.progress = specialAtack
-                            pbSpecialDefence.progressTintList = ColorStateList.valueOf(Color.parseColor(getString(R.string.fire)))
+                            pbSpecialDefence.progressTintList =
+                                ColorStateList.valueOf(Color.parseColor(getString(R.string.fire)))
                         }
 
 
-                        if (defense != null){
+                        if (defense != null) {
                             tvDefense.text = defense.toString()
                             pbdefense.progress = defense
-                            pbdefense.progressTintList = ColorStateList.valueOf(Color.parseColor(getString(R.string.grass)))
+                            pbdefense.progressTintList =
+                                ColorStateList.valueOf(Color.parseColor(getString(R.string.grass)))
                         }
 
 
-                        if (attack != null){
+                        if (attack != null) {
                             tvattack.text = attack.toString()
                             pbattack.progress = attack
-                            pbattack.progressTintList = ColorStateList.valueOf(Color.parseColor(getString(R.string.dark)))
+                            pbattack.progressTintList =
+                                ColorStateList.valueOf(Color.parseColor(getString(R.string.dark)))
                         }
 
                         tvHp.text = hp.toString()
                         if (hp != null) {
                             pbHp.progress = hp
-                            pbHp.progressTintList = ColorStateList.valueOf(Color.parseColor(getString(R.string.cinco)))
+                            pbHp.progressTintList =
+                                ColorStateList.valueOf(Color.parseColor(getString(R.string.cinco)))
                         }
 
 
@@ -134,14 +171,13 @@ class PokemonIndividual : AppCompatActivity() {
                             tipo.forEach {
 
 
-                                when(it.type.name){
+                                when (it.type.name) {
 
                                     "fire" -> {
 
                                         setColor(Color.parseColor(getString(R.string.fire)))
 
                                     }
-
 
 
                                     "water" -> {
@@ -156,7 +192,7 @@ class PokemonIndividual : AppCompatActivity() {
 
                                     }
 
-                                    "bug"-> {
+                                    "bug" -> {
                                         setColor(Color.parseColor(getString(R.string.bug)))
 
                                     }
@@ -210,8 +246,10 @@ class PokemonIndividual : AppCompatActivity() {
                                     "dragon" -> {
                                         setColor(Color.parseColor(getString(R.string.dragon)))
 
-                                    }
+                                    }        "normal" -> {
+                                        setColor(Color.parseColor(getString(R.string.normal)))
 
+                                    }
 
 
                                 }
@@ -222,41 +260,11 @@ class PokemonIndividual : AppCompatActivity() {
                         }
 
 
-
-
-
-
-
-//
-//
-//                        btnMoves.setOnClickListener{
-//                            llMoves.visibility = View.VISIBLE
-//                            llStats.visibility = View.GONE
-//                            btnMoves.setBackgroundColor(Color.parseColor(getString(R.string.Rojo)))
-//                            btnMoves.setTextColor(Color.parseColor(getString(R.string.blanquito)))
-//                            btnStats.setTextColor(Color.parseColor(getString(R.string.negro)))
-//                            btnStats.setBackgroundColor(Color.parseColor(getString(R.string.fondNeutro)))
-//
-//                        }
-//
-//                        btnStats.setOnClickListener{
-//                            llMoves.visibility = View.GONE
-//                            llStats.visibility = View.VISIBLE
-//                            btnStats.setBackgroundColor(Color.parseColor(getString(R.string.Rojo)))
-//                            btnMoves.setBackgroundColor(Color.parseColor(getString(R.string.fondNeutro)))
-//                            btnStats.setTextColor(Color.parseColor(getString(R.string.blanquito)))
-//                            btnMoves.setTextColor(Color.parseColor(getString(R.string.negro)))
-//                        }
-
-
-
-
                     }
 
                 })
             }
         }
-
 
 
     }
@@ -269,7 +277,7 @@ class PokemonIndividual : AppCompatActivity() {
         btnStats.setBackgroundColor(color)
         btnStats.setTextColor(Color.parseColor(getString(R.string.blanquito)))
 
-        btnMoves.setOnClickListener{
+        btnMoves.setOnClickListener {
             llMoves.visibility = View.VISIBLE
             llStats.visibility = View.GONE
             btnMoves.setBackgroundColor(color)
@@ -279,7 +287,7 @@ class PokemonIndividual : AppCompatActivity() {
 
         }
 
-        btnStats.setOnClickListener{
+        btnStats.setOnClickListener {
             llMoves.visibility = View.GONE
             llStats.visibility = View.VISIBLE
             btnStats.setBackgroundColor(color)
@@ -289,4 +297,6 @@ class PokemonIndividual : AppCompatActivity() {
         }
 
     }
+
+
 }

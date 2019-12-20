@@ -10,8 +10,8 @@
     tools:context=".PokemonIndividual">
 
 
-    <ScrollView
-
+    <LinearLayout
+    android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -112,40 +112,41 @@
 
                     android:orientation="horizontal">
 
-                        <Button
-                            android:layout_marginRight="3dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:textSize="10sp"
-                            android:id="@+id/btnStats"
-                            android:textColor="@color/Blanco"
-                            tools:background="@color/seleccionado"
-                            android:text="Stats">
-
-                        </Button>
                     <Button
+                        android:id="@+id/btnStats"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginRight="3dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:text="Stats"
+                        android:textColor="@color/Blanco"
                         android:textSize="10sp"
-                        android:id="@+id/btnMoves"
-                        android:background="@color/fondGRis"
-                            android:text="Moves">
+                        tools:background="@color/seleccionado">
 
-                        </Button>
+                    </Button>
+
                     <Button
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                        android:id="@+id/btnMoves"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="3dp"
                         android:layout_weight="2"
-                        android:textSize="10sp"
-                        android:id="@+id/btnOthers"
                         android:background="@color/fondGRis"
-                            android:text="Others">
+                        android:text="Moves"
+                        android:textSize="10sp">
 
-                        </Button>
+                    </Button>
 
+                    <Button
+                        android:id="@+id/btnOthers"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:background="@color/fondGRis"
+                        android:text="Others"
+                        android:textSize="10sp">
+
+                    </Button>
 
 
                 </LinearLayout>
@@ -400,71 +401,81 @@
 
 
             <LinearLayout
-                android:visibility="gone"
                 android:id="@+id/llMoves"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-
-
-
-
-
-
+                android:layout_margin="15dp"
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingLeft="12dp"
-                    android:paddingTop="5dp"
-                    android:paddingRight="12dp">
+                    android:orientation="horizontal">
 
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Hp   "
-                            android:textSize="11dp"></TextView>
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="right"
-                            android:text="29"
-                            android:textSize="11dp">
-
-                        </TextView>
-                    </LinearLayout>
-
-
-                    <ProgressBar
-                        style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+                    <TextView
+                        android:id="@+id/pruebaTexto"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/colorAccent"
-                        android:foregroundTint="@color/colorPrimary"
-                        android:max="100"
-                        android:progress="50" />
+                        android:layout_weight="3"
+                        android:text="Name">
 
+                    </TextView>
 
+                    <TextView
+                        android:id="@+id/tvAtaqueTipo"
+                        android:textAlignment="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+
+                        android:text="accuracy">
+
+                    </TextView>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:padding="10sp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:textAlignment="center"
+                                android:id="@+id/tvAtaqueFuerza"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:padding="10sp"
+                                android:layout_gravity="center_vertical"
+                                android:text="Type">
+
+                            </TextView>
+                        </LinearLayout>
                 </LinearLayout>
 
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvMoves"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        tools:listitem="@layout/item_moves">
+
+
+                    </androidx.recyclerview.widget.RecyclerView>
+
+
+                </ScrollView>
 
             </LinearLayout>
 
 
-
-
         </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 
 
 </LinearLayout>

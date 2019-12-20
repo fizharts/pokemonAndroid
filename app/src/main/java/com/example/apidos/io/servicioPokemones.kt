@@ -21,6 +21,9 @@ interface ServicioPokemones {
     @GET("type/{type}")
         abstract fun getPokemonByType(@Path("type") typoPokemon: String): Call<PokemonPorTipo>
 
+    @GET("move/{move}")
+        abstract fun getMoveType(@Path("move")typeMove: String) : Call<MoveTypes>
+
 
     @GET("type")
     abstract fun getType(): Call<ObjetoPokemon>

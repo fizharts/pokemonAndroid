@@ -59,15 +59,15 @@
 
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/Rv_tipos"
-            android:visibility="gone"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/item_pokemon">
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/Rv_tipos"-->
+<!--            android:visibility="gone"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            tools:listitem="@layout/item_pokemon">-->
 
 
-        </androidx.recyclerview.widget.RecyclerView>
+<!--        </androidx.recyclerview.widget.RecyclerView>-->
 
 
     </LinearLayout>
