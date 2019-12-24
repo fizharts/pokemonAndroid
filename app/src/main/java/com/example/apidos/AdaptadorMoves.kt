@@ -5,19 +5,25 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apidos.io.Move
 import com.example.apidos.io.MoveTypes
-import com.example.apidos.io.PokemonImagen
 import com.example.apidos.io.ServicioPokemones
+import kotlinx.android.synthetic.main.activity_pokemon_individual.view.*
 import kotlinx.android.synthetic.main.item_moves.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 // aqui agregamos una variable con un array list
-class AdaptadorMoves(private val adaptadorMoves: ArrayList<Move>, private val contexto:Context) : RecyclerView.Adapter<AdaptadorMoves.ViewHolder>() {
+class AdaptadorMoves(
+    private val adaptadorMoves: ArrayList<Move>,
+    private val contexto: Context,
+    private val id: String,
+   private val tvTextoPokemon: TextView
+) : RecyclerView.Adapter<AdaptadorMoves.ViewHolder>() {
 
         private val servicioPokemones:ServicioPokemones by lazy {
             ServicioPokemones.create()
@@ -166,8 +172,28 @@ class AdaptadorMoves(private val adaptadorMoves: ArrayList<Move>, private val co
             holder.itemView.setOnClickListener {
 
 
+//                holder.llAtack.visibility = View.VISIBLE
 
                 Toast.makeText(contexto,ataque, Toast.LENGTH_SHORT).show()
+
+//                 val irMoveTypes = Intent(contexto, MoveActivity::class.java)
+
+//                irMoveTypes.putExtra("ataque",ataque)
+//                irMoveTypes.putExtra("id",id)
+//
+//                contexto.startActivity(irMoveTypes)
+
+
+
+
+                    if (tvTextoPokemon.visibility === View.GONE){
+                        tvTextoPokemon.visibility = View.VISIBLE
+                    }else{
+                        tvTextoPokemon.visibility = View.GONE
+                    }
+
+
+
             }
 
     }
@@ -181,6 +207,12 @@ class AdaptadorMoves(private val adaptadorMoves: ArrayList<Move>, private val co
         val itemType = itemView.itemType
 
         val itemAtack = itemView.itemAtack
+
+
+
+        val llAtack = itemView.llAtack
+
+        val tvTextoPokemon = itemView.tvTextoPokemon
 //        val urlMove = itemView.urlMove
 
 

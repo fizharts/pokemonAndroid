@@ -8,17 +8,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.apidos.io.Move
 import com.example.apidos.io.PokemonImagen
 import com.example.apidos.io.ServicioPokemones
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_pokemon_individual.*
-import kotlinx.android.synthetic.main.item_moves.*
 import retrofit2.Call
 import retrofit2.Response
-import kotlin.math.log
 
 class PokemonIndividual : AppCompatActivity() {
 
@@ -58,6 +55,7 @@ class PokemonIndividual : AppCompatActivity() {
                         val res = response.body()
                         val tipo = res?.types
                         val ability = res?.stats
+
 
                         val speed = ability?.get(0)?.base_stat
                         val specialAtack = ability?.get(1)?.base_stat
@@ -101,10 +99,10 @@ class PokemonIndividual : AppCompatActivity() {
 
 
                         }
-
+                            val imagensita = res?.sprites?.back_default.toString()
 
                         rvMoves.layoutManager = LinearLayoutManager(this@PokemonIndividual)
-                        rvMoves.adapter = AdaptadorMoves(arrayMovesPOkemon,this@PokemonIndividual)
+                        rvMoves.adapter = AdaptadorMoves(arrayMovesPOkemon,this@PokemonIndividual, imagensita , tvTextoPokemon)
 
 
 
