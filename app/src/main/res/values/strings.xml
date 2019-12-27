@@ -45,7 +45,9 @@
     <string name="poison">#AB47BC</string>
     <string name="steel">#797979</string>
     <string name="psychic">#5C6BC0</string>
-    <string name="dragon">#FF4081</string>
+    <string name="dragon">#FF2751</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod imperdiet leo et tempus. Donec quis lectus efficitur, blandit odio ac, egestas lorem. Suspendisse quis feugiat ex, ac venenatis nisl. Sed in elementum magna. Nullam suscipit a odio vitae facilisis. Vestibulum pharetra enim at dapibus pellentesque. Maecenas eget orci vel nulla ultricies hendrerit non at risus.  Curabitur justo orci, mollis dignissim metus suscipit, ornare condimentum eros. Sed vitae augue et leo tincidunt semper. Nullam quis maximus nisi. Praesent erat neque, tempus sit amet lorem sodales, semper pulvinar mauris. Pellentesque sed venenatis ligula. Suspendisse potenti. Nulla ut molestie est. Etiam ullamcorper mollis augue nec porta.</string>
+    <string name="error">error en el servidor</string>
 
 
 </resources>

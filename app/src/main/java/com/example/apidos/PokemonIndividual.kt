@@ -101,8 +101,9 @@ class PokemonIndividual : AppCompatActivity() {
                         }
                             val imagensita = res?.sprites?.back_default.toString()
 
+
                         rvMoves.layoutManager = LinearLayoutManager(this@PokemonIndividual)
-                        rvMoves.adapter = AdaptadorMoves(arrayMovesPOkemon,this@PokemonIndividual, imagensita , tvTextoPokemon)
+                        rvMoves.adapter = AdaptadorMoves(arrayMovesPOkemon,this@PokemonIndividual, imagensita , llAtack , cartita , btnCerrar, res?.sprites?.back_default)
 
 
 
